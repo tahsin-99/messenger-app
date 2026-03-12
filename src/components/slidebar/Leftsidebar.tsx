@@ -43,7 +43,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSelectConversation, activeId
                 <span className="text-sm text-gray-500">
                   {conv.messages[conv.messages.length - 1].text}
                 </span>
+                
               </div>
+              <p className="ml-2">{conv.messages[conv.messages.length - 1].timestamp}</p>
             </Button>
           ))}
         </div>
