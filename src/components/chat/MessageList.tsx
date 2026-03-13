@@ -4,10 +4,13 @@ interface Message {
   id: string;
   text: string;
   senderId: string;
+  timestamp: string;
 }
+
 interface MessageListProps {
   messages: Message[];
 }
+
 const MessageList = ({ messages }: MessageListProps) => {
   return (
     <ScrollArea className="flex-1 p-4">
@@ -15,13 +18,24 @@ const MessageList = ({ messages }: MessageListProps) => {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`max-w-xs p-2 rounded-lg ${
-              msg.senderId === "me"
-                ? "bg-blue-500 text-white ml-auto"
-                : "bg-gray-200"
+            className={`flex flex-col ${
+              msg.senderId === "me" ? "items-end" : "items-start"
             }`}
           >
-            {msg.text}
+            {/* Bubble */}
+            <div
+              className={`p-2 rounded-lg max-w-xs ${
+                msg.senderId === "me"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200"
+              }`}
+            >
+              {msg.text}
+            </div>
+            
+            <span className="text-xs text-gray-500 mt-1">
+              {msg.timestamp}
+            </span>
           </div>
         ))}
       </div>
