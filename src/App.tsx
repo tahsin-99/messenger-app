@@ -19,14 +19,14 @@ function App() {
     <>
    
      <div className='text-4xl font-bold text-blue-700 m-10'>LinkUp</div>
-      <div className='flex h-screen mt-10 p-5'>
-        <div className='w-[30%]'>
+      <div className='flex flex-1 overflow-hidden h-screen mt-10 p-5'>
+        <div className='w-[30%] overflow-y-auto'>
           <Sidebar
           activeId={activeId}
           onSelectConversation={handleSelectConversation}
           ></Sidebar>
         </div>
-        <div className='w-[70%]'>
+        <div className='w-[70%] flex flex-col '>
       <RightsideBar conversation={activeConversation}></RightsideBar>
         </div>
       </div>

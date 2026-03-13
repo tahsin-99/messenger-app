@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ChatHeader from "../chat/ChatHeader";
 import MessageList from "../chat/MessageList";
 import MessageInput from "../chat/MessageInput";
@@ -29,6 +29,7 @@ interface RightsideBarProps {
 
 const RightsideBar = ({ conversation }: RightsideBarProps) => {
   const [messages, setMessages] = useState<Message[]>(conversation?.messages || []);
+    const scrollRef = useRef<HTMLDivElement>(null);
 
  
   useEffect(() => {
@@ -36,6 +37,13 @@ const RightsideBar = ({ conversation }: RightsideBarProps) => {
   }, [conversation]);
 
   
+   useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages]);
+
   const handleSend = (text: string) => {
     if (!text.trim()) return;
 
@@ -53,7 +61,9 @@ const RightsideBar = ({ conversation }: RightsideBarProps) => {
   return (
     <div className="flex flex-col h-full border border-black rounded-sm">
       <ChatHeader conversation={conversation} />
-      <MessageList messages={messages} />
+     <div  className="flex-1 overflow-y-auto" ref={scrollRef}>
+       <MessageList  messages={messages} />
+     </div>
       <MessageInput onSend={handleSend} />
     </div>
   );
