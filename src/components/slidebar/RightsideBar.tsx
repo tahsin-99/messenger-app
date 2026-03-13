@@ -3,16 +3,36 @@ import ChatHeader from '../chat/ChatHeader';
 import MessageList from '../chat/MessageList';
 import MessageInput from '../chat/MessageInput';
 
+interface Message {
+  id: string;
+  senderId: string;
+  text: string;
+  timestamp: string;
+}
+
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+  online: boolean;
+}
+
+interface Conversation {
+  id: string;
+  user: User;
+  messages: Message[];
+}
 
 interface RightsideBarProps {
-  activeId: string;
+  conversation?: Conversation;
 }
-const RightsideBar = ({activeId}: RightsideBarProps) => {
+
+const RightsideBar = ({conversation}: RightsideBarProps) => {
       
     return (
-        <div className='border border-green-500 h-auto'>
-            <ChatHeader conversation={activeId} ></ChatHeader>
-            <MessageList conversation={activeId}></MessageList>
+        <div className='flex flex-col h-full border border-green-500'>
+            <ChatHeader conversation={conversation} ></ChatHeader>
+            <MessageList messages={conversation?.messages|| []}></MessageList>
             <MessageInput></MessageInput>
         </div>
     );

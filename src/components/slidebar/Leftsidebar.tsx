@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { conversations } from "../data/mockdata";
+import { conversations } from "../data/mockData";
 
 
 interface SidebarProps {

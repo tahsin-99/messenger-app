@@ -4,6 +4,7 @@ import './App.css'
 import { Sidebar } from './components/slidebar/Leftsidebar'
 
 import RightsideBar from './components/slidebar/RightsideBar'
+import { conversations } from './components/data/mockData';
 
 
 
@@ -12,6 +13,8 @@ function App() {
  const handleSelectConversation = (id: string) => {
     setActiveId(id);
   };
+
+  const activeConversation=conversations.find((conv) => conv.id === activeId)
   return (
     <>
    
@@ -24,7 +27,7 @@ function App() {
           ></Sidebar>
         </div>
         <div className='w-[70%]'>
-      <RightsideBar activeId={activeId}></RightsideBar>
+      <RightsideBar conversation={activeConversation}></RightsideBar>
         </div>
       </div>
       

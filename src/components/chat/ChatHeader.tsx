@@ -9,7 +9,7 @@ const ChatHeader = ({conversation}) => {
 
       <div>
         <p className="font-semibold">{conversation.user.name}</p>
-        <p className="text-sm text-green-500">{conversation.user.online ? "Online" : "Offline"}</p>
+        <p className={`text-sm ${conversation.user.online ? "text-green-500" : "text-red-500"}`}>{conversation.user.online ? "Online" : "Offline"}</p>
       </div>
     </div>
   )
