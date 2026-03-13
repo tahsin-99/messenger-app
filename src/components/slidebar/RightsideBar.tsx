@@ -29,6 +29,7 @@ interface RightsideBarProps {
 }
 
 const RightsideBar = ({ conversation }: RightsideBarProps) => {
+  
   const [messages, setMessages] = useState<Message[]>(conversation?.messages || []);
     const [isTyping, setIsTyping] = useState(false);
 
@@ -60,6 +61,7 @@ const RightsideBar = ({ conversation }: RightsideBarProps) => {
     setIsTyping(false)
   };
 
+    if (!conversation) return null;
   
   return (
     <div className="flex flex-col h-full border border-gray-200 rounded-sm">
