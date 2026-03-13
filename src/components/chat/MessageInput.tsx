@@ -1,17 +1,30 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+
+
+import { useState } from "react";
 
 interface MessageInputProps {
   onSend: (text: string) => void;
+   onTyping?: (typing: boolean) => void; 
 }
-const MessageInput = ({onSend}:MessageInputProps) => {
+const MessageInput = ({onSend,onTyping}:MessageInputProps) => {
   const [message, setMessage] = useState("")
 
+  
+
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(e.target.value);
+    if (onTyping) onTyping(e.target.value.length > 0); 
+  };
+  
+  
+  
   const handleSend = () => {
    
     onSend(message)
     setMessage("")
+    
   }
 
   return (
@@ -19,9 +32,11 @@ const MessageInput = ({onSend}:MessageInputProps) => {
       <Input
         placeholder="Type a message..."
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={handleChange}
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
+
+
 
       <Button  className="cursor-pointer" onClick={handleSend}>Send</Button>
     </div>

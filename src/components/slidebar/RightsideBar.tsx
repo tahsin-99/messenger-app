@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ChatHeader from "../chat/ChatHeader";
 import MessageList from "../chat/MessageList";
 import MessageInput from "../chat/MessageInput";
+import { TypingIndicator } from "../TypingIndicator";
 
 interface Message {
   id: string;
@@ -29,9 +30,10 @@ interface RightsideBarProps {
 
 const RightsideBar = ({ conversation }: RightsideBarProps) => {
   const [messages, setMessages] = useState<Message[]>(conversation?.messages || []);
+    const [isTyping, setIsTyping] = useState(false);
+
     const scrollRef = useRef<HTMLDivElement>(null);
 
- 
   useEffect(() => {
     setMessages(conversation?.messages || []);
   }, [conversation]);
@@ -55,6 +57,7 @@ const RightsideBar = ({ conversation }: RightsideBarProps) => {
     };
 
     setMessages([...messages, newMessage]);
+    setIsTyping(false)
   };
 
   
@@ -63,8 +66,9 @@ const RightsideBar = ({ conversation }: RightsideBarProps) => {
       <ChatHeader conversation={conversation} />
      <div  className="flex-1 overflow-y-auto" ref={scrollRef}>
        <MessageList  messages={messages} />
+       {isTyping && <TypingIndicator></TypingIndicator>}
      </div>
-      <MessageInput onSend={handleSend} />
+      <MessageInput onSend={handleSend} onTyping={setIsTyping} />
     </div>
   );
 };
