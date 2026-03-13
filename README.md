@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# LinkUp Chat UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+LinkUp is a responsive chat user interface built with React, TypeScript, Tailwind CSS, and shadcn/ui.
+The project simulates a modern messaging application similar to WhatsApp or Messenger, featuring a conversation list, chat window, message input, timestamps, and a mobile-friendly layout.
 
-Currently, two official plugins are available:
+This project focuses on clean UI structure, component-based architecture, and responsive design.
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo
 
-## React Compiler
+https://linkup-messenger.netlify.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## GitHub Repository
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+https://github.com/tahsin-99/messenger-app
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Setup Instructions
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository
+
+```
+git clone https://github.com/your-username/linkup-chat-ui.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Navigate to the project folder
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+cd linkup-chat-ui
+```
+
+3. Install dependencies
+
+```
+npm install
+```
+
+---
+
+# How to Run the Project
+
+Start the development server:
+
+```
+npm run dev
+```
+
+The application will run at:
+
+```
+http://localhost:5173
+```
+
+---
+
+# Features
+
+* Responsive chat layout
+* Mobile-friendly UI
+* Conversation list with avatars
+* Chat messages with timestamps
+* Message input field
+* Search conversations
+* Dark mode support
+
+---
+
+# Tech Stack
+
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* Vite
+
+---
+
+# Author
+
+**Tahsin Sikder**
+MERN Stack Developer
