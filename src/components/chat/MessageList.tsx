@@ -1,4 +1,4 @@
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface Message {
   id: string;
@@ -8,13 +8,10 @@ interface Message {
 interface MessageListProps {
   messages: Message[];
 }
-const MessageList = ({ messages }:MessageListProps) => {
-
-
+const MessageList = ({ messages }: MessageListProps) => {
   return (
     <ScrollArea className="flex-1 p-4">
       <div className="flex flex-col gap-3">
-
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -27,10 +24,9 @@ const MessageList = ({ messages }:MessageListProps) => {
             {msg.text}
           </div>
         ))}
-
       </div>
     </ScrollArea>
-  )
-}
+  );
+};
 
-export default MessageList
+export default MessageList;

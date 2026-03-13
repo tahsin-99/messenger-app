@@ -2,12 +2,15 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
-const MessageInput = () => {
+interface MessageInputProps {
+  onSend: (text: string) => void;
+}
+const MessageInput = ({onSend}:MessageInputProps) => {
   const [message, setMessage] = useState("")
 
   const handleSend = () => {
-    if (!message.trim()) return
-    console.log(message)
+   
+    onSend(message)
     setMessage("")
   }
 
@@ -20,7 +23,7 @@ const MessageInput = () => {
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
 
-      <Button className="cursor-pointer" onClick={handleSend}>Send</Button>
+      <Button  className="cursor-pointer" onClick={handleSend}>Send</Button>
     </div>
   )
 }

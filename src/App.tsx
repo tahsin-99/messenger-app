@@ -19,7 +19,7 @@ function App() {
     <>
    
      <div className='text-4xl font-bold text-blue-700 m-10'>LinkUp</div>
-      <div className='flex h-screen mt-20 p-5'>
+      <div className='flex h-screen mt-10 p-5'>
         <div className='w-[30%]'>
           <Sidebar
           activeId={activeId}
