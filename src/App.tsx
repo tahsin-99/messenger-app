@@ -8,7 +8,7 @@ import RightsideBar from './components/slidebar/RightsideBar'
 
 
 function App() {
-  const [activeId, setActiveId] = useState<string>("1"); // default active conversation
+  const [activeId, setActiveId] = useState<string>("1"); 
  const handleSelectConversation = (id: string) => {
     setActiveId(id);
   };
@@ -24,7 +24,7 @@ function App() {
           ></Sidebar>
         </div>
         <div className='w-[70%]'>
-      <RightsideBar></RightsideBar>
+      <RightsideBar activeId={activeId}></RightsideBar>
         </div>
       </div>
       
