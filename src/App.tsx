@@ -18,7 +18,17 @@ function App() {
   return (
     <>
    
-     <div className='text-4xl font-bold text-blue-700 m-10'>LinkUp</div>
+     <div className='flex justify-between items-center'>
+      <div className='text-4xl font-bold text-blue-700 m-10'>LinkUp</div>
+      <div>
+         <button
+    onClick={() => document.documentElement.classList.toggle("dark")}
+    className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg text-black dark:text-white m-4 cursor-pointer"
+  >
+    🌙 / ☀️
+  </button>
+      </div>
+     </div>
       <div className='flex flex-1 overflow-hidden h-screen mt-10 p-5'>
         <div className='w-[30%] overflow-y-auto'>
           <Sidebar

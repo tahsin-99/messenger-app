@@ -27,7 +27,7 @@ const MessageList = ({ messages }: MessageListProps) => {
               className={`p-2 rounded-lg max-w-xs ${
                 msg.senderId === "me"
                   ? "bg-blue-500 text-white"
-                  : "bg-gray-200"
+                  : "bg-gray-200 dark:text-black"  
               }`}
             >
               {msg.text}

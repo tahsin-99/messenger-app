@@ -62,7 +62,7 @@ const RightsideBar = ({ conversation }: RightsideBarProps) => {
 
   
   return (
-    <div className="flex flex-col h-full border border-black rounded-sm">
+    <div className="flex flex-col h-full border border-gray-200 rounded-sm">
       <ChatHeader conversation={conversation} />
      <div  className="flex-1 overflow-y-auto" ref={scrollRef}>
        <MessageList  messages={messages} />
