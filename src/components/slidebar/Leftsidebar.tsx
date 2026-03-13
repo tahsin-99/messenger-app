@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
@@ -9,8 +9,13 @@ interface SidebarProps {
   onSelectConversation: (id: string) => void;
   activeId: string;
 }
-
+ 
 export const Sidebar: React.FC<SidebarProps> = ({ onSelectConversation, activeId }) => {
+
+  const [search, setSearch] = useState("");
+const filteredConversations = conversations.filter((conv) =>
+    conv.user.name.toLowerCase().includes(search.toLowerCase())
+  );
   return (
     <div className="w-80 border-r border-gray-200 flex flex-col h-screen">
       
@@ -21,14 +26,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSelectConversation, activeId
         <input
           type="text"
           placeholder="Search..."
+          onChange={(e)=>setSearch(e.target.value)}
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          
         />
       </div>
 
       
       <ScrollArea className="flex-1">
         <div className="flex flex-col ">
-          {conversations.map((conv) => (
+          {filteredConversations.map((conv) => (
             <Button
               key={conv.id}
               variant={conv.id === activeId ? "default" : "ghost"}
