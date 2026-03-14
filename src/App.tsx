@@ -15,14 +15,14 @@ function App() {
   const activeConversation = conversations.find((conv) => conv.id === activeId);
   return (
     <>
-     {activeId && (
-  <button
-    onClick={() => setActiveId(null)}
-    className="md:hidden text-2xl font-bold m-3"
-  >
-    ←
-  </button>
-)}
+      {activeId && (
+        <button
+          onClick={() => setActiveId(null)}
+          className="md:hidden text-2xl font-bold m-3"
+        >
+          ←
+        </button>
+      )}
       <div className="flex justify-between items-center">
         <div className="text-4xl font-bold text-blue-700 m-10">LinkUp</div>
         <div>

@@ -22,7 +22,7 @@ const MessageList = ({ messages }: MessageListProps) => {
               msg.senderId === "me" ? "items-end" : "items-start"
             }`}
           >
-            {/* Bubble */}
+            
             <div
               className={`p-2 rounded-lg max-w-xs ${
                 msg.senderId === "me"
